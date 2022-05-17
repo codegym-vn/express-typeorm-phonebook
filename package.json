@@ -6,7 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rimraf dist && tsc -p tsconfig.build.json",
-    "start:dev": "tsc-watch -p tsconfig.build.json --onSuccess \"node dist/index.js\""
+    "start:dev": "tsc-watch -p tsconfig.build.json --onSuccess \"node dist/index.js\"",
+    "m:g": "yarn build && typeorm migration:generate -d dist/src/data-source.js",
+    "m:run": "yarn build && typeorm migration:run -d dist/src/data-source.js",
+    "m:revert": "typeorm migration:revert -d dist/src/data-source.js"
   },
   "author": "",
   "license": "ISC",
